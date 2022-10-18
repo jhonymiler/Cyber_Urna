@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --font-family: "Poppins", sans-serif;
+
+  --gradient2: linear-gradient(89.97deg, #198754 1.84%, #ffc107 102.67%);
+  --primary-btn: linear-gradient(
+    101.12deg,
+    #198754 27.35%,
+    #ffc107 99.99%,
+    #ffc107 100%,
+    #ffc107 100%
+  );
+
+  --primary-color: #198754;
+  --secondary-color: #ffc107;
+
+  --color-bg: #24252d;
+  --color-card: #2a2d3a;
+  --color-footer: #24252d;
+}
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #2a2d3a #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 14px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color-card);
+  border-radius: 10px;
+  border: 3px none #ffffff;
+}
