@@ -12,6 +12,14 @@ a {
   color: inherit;
 }
 
+.modal-content {
+  background: var(--color-bg);
+  color: white;
+}
+.modal-content .btn-close {
+  color: white;
+}
+
 .gradient__bg {
   /* ff 3.6+ */
   background: -moz-radial-gradient(

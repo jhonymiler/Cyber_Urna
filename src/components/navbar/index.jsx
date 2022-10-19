@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import "./navbar.css";
 import { FaVoteYea } from "react-icons/all";
-import Conectores from "../conectores";
+import Button from "react-bootstrap/Button";
 
-const Navbar = (conectores, ativate, deactivate) => {
-  const [user, setUser] = useState(false);
+import { useWeb3React } from "@web3-react/core";
+import ModalConectores from "../modalconectores";
 
-  const [show, setShow] = useState(false);
-
-  const handleLogin = () => {
-    setUser(true);
-  };
+const Navbar = () => {
+  const [modalShow, setShow] = useState(false);
+  const { deactivate, active } = useWeb3React();
 
   return (
     <div className="navbar mx-5 py-4">
@@ -21,21 +19,30 @@ const Navbar = (conectores, ativate, deactivate) => {
         </div>
       </div>
       <div className="navbar-sign">
-        {user ? (
+        {active ? (
           <>
-            <button type="button" className="secondary-btn">
-              Conectado
-            </button>
+            <Button
+              variant="primary"
+              className="primary-btn"
+              onClick={deactivate}
+            >
+              Desconectar
+            </Button>
           </>
         ) : (
           <>
-            <button type="button" className="primary-btn" onClick={handleLogin}>
+            <Button
+              variant="primary"
+              className="primary-btn"
+              onClick={() => setShow(true)}
+            >
               Conectar Wallet
-            </button>
+            </Button>
           </>
         )}
       </div>
-      <Conectores show={show} setShow={setShow} />
+
+      <ModalConectores show={modalShow} onHide={() => setShow(false)} />
     </div>
   );
 };

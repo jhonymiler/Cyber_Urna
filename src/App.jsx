@@ -1,44 +1,24 @@
-import { WalletLinkConnector } from "@web3-react/walletlink-connector";
-import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
-import { InjectedConnector } from "@web3-react/injected-connector";
-
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import Bids from "./components/bids";
 
-const Conectores = {
-  CoinbaseWallet: new WalletLinkConnector({
-    url: `https://goerli.infura.io/v3/${import.meta.env.INFURA_API_KEY}`,
-    appName: "Web3-react Demo",
-    supportedChainIds: [1, 3, 4, 5, 42],
-  }),
-  WalletConnect: new WalletConnectConnector({
-    rpcUrl: `https://goerli.infura.io/v3/${import.meta.env.INFURA_API_KEY}`,
-    bridge: "https://bridge.walletconnect.org",
-    qrcode: true,
-  }),
-  Injected: new InjectedConnector({
-    supportedChainIds: [1, 3, 4, 5, 42],
-  }),
-};
+import { useWeb3React } from "@web3-react/core";
 
 function App() {
-  const { activate, deactivate } = useWeb3React();
+  const { library, chainId, account, activate, deactivate, active } =
+    useWeb3React();
+
+  useEffect(() => {
+    const provider = window.localStorage.getItem("provider");
+    if (provider) activate(connectors[provider]);
+  }, []);
 
   return (
     <>
-      <Navbar
-        conectores={Conectores}
-        ativate={activate}
-        deactivate={deactivate}
-      />
+      <Navbar />
       <Header />
-      <Bids
-        conectores={Conectores}
-        ativate={activate}
-        deactivate={deactivate}
-      />
+      <Bids />
       <Footer />
     </>
   );
