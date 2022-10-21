@@ -19,7 +19,7 @@ const Bids = () => {
             <div className="bids-card" id="lula">
               <div className="bids-card-bottom">
                 <p>
-                  0.20 <span>ETH</span>
+                  <span>VOTOS</span>
                 </p>
                 <p>
                   {" "}
@@ -42,7 +42,7 @@ const Bids = () => {
             <div className="bids-card" id="bolsonaro">
               <div className="bids-card-bottom">
                 <p>
-                  1.25 <span>ETH</span>
+                  <span>VOTOS</span>
                 </p>
                 <p>
                   {" "}
