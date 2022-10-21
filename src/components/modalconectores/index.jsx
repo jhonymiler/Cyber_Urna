@@ -5,15 +5,13 @@ import wallet_img from "../../assets/imgs/WalletConnect.png";
 import metamask_img from "../../assets/imgs/metamask.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-import {
-  Injected,
-  WalletConnect,
-  CoinbaseWallet,
-} from "../../services/conectores.js";
+import { connectors } from "../../services/connectors";
+
 import { useWeb3React } from "@web3-react/core";
 
 function ModalConectores({ show, onHide }) {
   const { activate } = useWeb3React();
+
   const setProvider = (type) => {
     window.localStorage.setItem("provider", type);
   };
@@ -30,7 +28,7 @@ function ModalConectores({ show, onHide }) {
             size="lg"
             className="my-1"
             onClick={() => {
-              activate(CoinbaseWallet);
+              activate(connectors.CoinbaseWallet);
               setProvider("CoinbaseWallet");
               onHide(false);
             }}
@@ -42,7 +40,7 @@ function ModalConectores({ show, onHide }) {
             size="lg"
             className="my-1"
             onClick={() => {
-              activate(WalletConnect);
+              activate(connectors.WalletConnect);
               setProvider("WalletConnect");
               onHide(false);
             }}
@@ -55,7 +53,7 @@ function ModalConectores({ show, onHide }) {
             size="lg"
             className="my-1"
             onClick={() => {
-              activate(Injected);
+              activate(connectors.Injected);
               setProvider("Injected");
               onHide(false);
             }}

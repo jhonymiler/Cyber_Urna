@@ -3,13 +3,7 @@ import "./navbar.css";
 import { FaVoteYea } from "react-icons/all";
 import Button from "react-bootstrap/Button";
 
-import { useWeb3React } from "@web3-react/core";
-import ModalConectores from "../modalconectores";
-
-const Navbar = () => {
-  const [modalShow, setShow] = useState(false);
-  const { deactivate, active } = useWeb3React();
-
+const Navbar = ({ setShow, active, disconnect }) => {
   return (
     <div className="navbar mx-5 py-4">
       <div className="navbar-links">
@@ -24,7 +18,7 @@ const Navbar = () => {
             <Button
               variant="primary"
               className="primary-btn"
-              onClick={deactivate}
+              onClick={() => disconnect()}
             >
               Desconectar
             </Button>
@@ -36,13 +30,11 @@ const Navbar = () => {
               className="primary-btn"
               onClick={() => setShow(true)}
             >
-              Conectar Wallet
+              Conectar
             </Button>
           </>
         )}
       </div>
-
-      <ModalConectores show={modalShow} onHide={() => setShow(false)} />
     </div>
   );
 };

@@ -7,7 +7,7 @@
 }
 .header-content > div {
   background: var(--primary-btn);
-  width: 100%;
+  width: 1280px;
   height: 300px;
   border-radius: 25px;
   display: flex;
@@ -181,15 +181,18 @@
   .header-slider .slider {
     width: 90%;
   }
+  .header-content div {
+    width: 1220px;
+  }
 }
 @media screen and (max-width: 1350px) {
   .header-slider .slider {
     width: 100%;
   }
-
   .header-content div {
-    height: 200px;
+    width: 810px;
   }
+
   .header-content div h1 {
     font-size: 36px;
     line-height: 32px;
@@ -201,6 +204,10 @@
   .slick-next {
     display: none !important;
   }
+  .header-content div {
+    width: 690px;
+  }
+
   .header-slider h1 {
     font-size: 20px;
     line-height: 30px;
@@ -217,9 +224,7 @@
     font-size: 14px;
     line-height: 21px;
   }
-  .header-content div {
-    height: 143px;
-  }
+
   .header-content div h1 {
     font-size: 20px;
     line-height: 24px;
@@ -227,21 +232,24 @@
   }
 }
 @media screen and (max-width: 800px) {
-  .header-content div img {
-    width: 20%;
-    margin-right: 10px;
+  .header-content div svg {
+    display: none;
   }
   .header-content div {
     justify-content: unset;
-  }
-  .header-content div h1 {
-    margin-left: 1rem;
+    padding: 0 0.1rem;
   }
 }
 @media screen and (max-width: 650px) {
   .header-content h1 {
     font-size: 48px;
     line-height: 60px;
+  }
+  .header-content div svg {
+    display: none;
+  }
+  .header-content div {
+    width: 380px;
   }
 }
 
@@ -252,9 +260,21 @@
   .bids {
     padding: 2rem 0px !important;
   }
+  .header-content div svg {
+    display: none;
+  }
+  .header-content div {
+    width: 380px;
+  }
 }
 @media screen and (max-width: 335px) {
   .slider .slider-card {
     margin-right: 0.5rem !important;
+  }
+  .header-content div svg {
+    display: none;
+  }
+  .header-content div {
+    width: 380px;
   }
 }

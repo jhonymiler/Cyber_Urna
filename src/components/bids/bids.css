@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   margin: auto;
-  width: 90%;
+  width: 100%;
 }
 .bids-container-text h1 {
   font-family: var(--font-family);
@@ -19,6 +19,8 @@
   margin: 0;
   flex-direction: row;
   justify-content: space-around;
+  padding-right: 7rem !important;
+  padding-left: 7rem !important;
 }
 
 .bids-title {
@@ -86,9 +88,29 @@
   line-height: 21px;
 }
 
+#lula:hover {
+  background-color: #8d1818;
+}
+
+#btn-lula {
+  background-color: #cb1919;
+}
+
+#btn-lula:hover {
+  background-color: #cd5454;
+}
+
+#bolsonaro:hover {
+  background-color: #1d2ebc;
+}
+
 @media screen and (max-width: 1440px) {
   .card-column {
-    width: 25%;
+    width: 50%;
+  }
+  .bids-container-card {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
   }
 }
 
