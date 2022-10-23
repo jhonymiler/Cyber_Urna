@@ -2,7 +2,6 @@ import React from "react";
 import "./footer.css";
 import { FaLinkedinIn, AiOutlineGithub, TfiEmail } from "react-icons/all";
 import { RiDiscordFill } from "react-icons/ri";
-import { FaTelegramPlane } from "react-icons/fa";
 const Footer = () => {
   return (
     <div className="footer mx-5">

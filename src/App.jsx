@@ -1,14 +1,14 @@
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
-import Header from "./components/header";
-import Bids from "./components/bids";
+import Navbar from "@components/navbar";
+import Footer from "@components/footer";
+import Header from "@components/header";
+import Bids from "@components/bids";
 
 import { useWeb3React } from "@web3-react/core";
-import ModalConectores from "./components/modalconectores";
+import ModalConectores from "@components/modalconectores";
 import { useEffect, useState } from "react";
-import { connectors } from "./services/connectors";
+import { connectors } from "@services/connectors";
 import { ethers } from "ethers";
-import { ContractABI, contractAddress } from "./services/contrato";
+import { ContractABI, contractAddress } from "@services/contrato";
 
 function App() {
   const { account, activate, deactivate, active } = useWeb3React();

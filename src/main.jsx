@@ -7,8 +7,8 @@ import { Web3Provider } from "@ethersproject/providers";
 import App from "./App";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./index.css";
-import "./App.css";
+import "@assets/css/index.css";
+import "@assets/css/App.css";
 
 function getLibrary(provider) {
   return new Web3Provider(provider);

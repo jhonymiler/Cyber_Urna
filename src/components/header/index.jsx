@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import { toHex, truncateAddress } from "../../utils";
+import { toHex, truncateAddress } from "@utils";
 
 import { Badge } from "react-bootstrap";
 import { FaVoteYea } from "react-icons/fa";

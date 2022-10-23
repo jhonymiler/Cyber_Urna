@@ -1,8 +1,8 @@
 import "./bids.css";
 import { AiFillHeart } from "react-icons/ai";
 
-import Bolsonaro from "../../assets/imgs/bolsonaro.jpg";
-import Lula from "../../assets/imgs/lula.jpg";
+import Bolsonaro from "@assets/imgs/bolsonaro.jpg";
+import Lula from "@assets/imgs/lula.jpg";
 
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Button } from "react-bootstrap";
@@ -10,7 +10,6 @@ import { Button } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect, useState } from "react";
-import { ethers } from "ethers";
 
 const Bids = ({ Contrato }) => {
   const [votosBolsonaro, setVotosBolsonaro] = useState(0);

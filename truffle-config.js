@@ -10,10 +10,15 @@ module.exports = {
       network_id: "*",
     },
     goerli: {
-      provider: () => new HDWalletProvider(MNEMONIC, INFURA_API_KEY),
-      network_id: "1",
-      gas: 30000000,
-      gasPrice: 300000,
+      provider: () =>
+        new HDWalletProvider(
+          MNEMONIC,
+          `https://goerli.infura.io/v3/${INFURA_API_KEY}`
+        ),
+      network_id: "5",
+      gas: 29970705,
+      gasPrice: 81345944820,
+      networkCheckTimeout: 999999,
     },
   },
   compilers: {

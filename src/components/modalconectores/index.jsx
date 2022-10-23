@@ -1,11 +1,11 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import coinbase_img from "../../assets/imgs/coinbase.png";
-import wallet_img from "../../assets/imgs/WalletConnect.png";
-import metamask_img from "../../assets/imgs/metamask.png";
+import coinbase_img from "@assets/imgs/coinbase.png";
+import wallet_img from "@assets/imgs/WalletConnect.png";
+import metamask_img from "@assets/imgs/metamask.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-import { connectors } from "../../services/connectors";
+import { connectors } from "@services/connectors";
 
 import { useWeb3React } from "@web3-react/core";
 
