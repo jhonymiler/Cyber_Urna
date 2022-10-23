@@ -1,14 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { ethers } from "ethers";
+import { toHex, truncateAddress } from "../../utils";
+
 import { Badge } from "react-bootstrap";
 import { FaVoteYea } from "react-icons/fa";
 import "./header.css";
 
-const Header = ({ conta = false, valor, contrato }) => {
-  let limite = 100000 / 1e18 > valor ? false : valor;
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-  const getDimdim = async () => {
-    await contrato.Saque();
+const formatValor = (valor) => {
+  return valor / 1e18;
+};
+
+const Header = ({ conta = false, provider, signer, Contrato }) => {
+  const [balance, setBalance] = useState(0);
+  const limite = formatValor(100000);
+
+  const erro = (e) => {
+    let msg = e.data.message.match(/revert (.*)/);
+    return msg[1];
   };
+
+  const getSaque = async () => {
+    try {
+      let privateKey = `${import.meta.env.PRIVATE_KEY}`;
+      let wallet = new ethers.Wallet(privateKey, provider);
+      let amountInEther = "0.006";
+      let tx = {
+        to: conta,
+        value: ethers.utils.parseEther(amountInEther),
+      };
+      wallet.sendTransaction(tx).then((txObj) => {
+        toast.success("Transação realizada!", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      });
+    } catch (e) {
+      toast.error(erro(e), {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (conta) {
+      provider.getBalance(conta).then((balance) => {
+        const balanceInEth =
+          limite > formatValor(balance)
+            ? false
+            : ethers.utils.formatEther(balance);
+        setBalance(balanceInEth);
+      });
+    }
+  });
   return (
     <div className="header mx-5 mt-5">
       <div className="header-content">
@@ -16,18 +61,19 @@ const Header = ({ conta = false, valor, contrato }) => {
           {conta ? (
             <div>
               <h1>
-                Você está conectado com: <Badge bg="dark">{conta}</Badge>
+                Você está conectado com:{" "}
+                <Badge bg="dark">{truncateAddress(conta)}</Badge>
               </h1>
 
-              {limite ? (
-                <h3>Você tem: {limite} em moedas. Pode votar!</h3>
+              {balance ? (
+                <h3>Você tem: {balance} em moedas. Pode votar!</h3>
               ) : (
                 <h3>
                   Para poder votar, por favor resgate suas moedas:{" "}
                   <a
                     href="#"
                     onClick={() => {
-                      getDimdim();
+                      getSaque();
                     }}
                   >
                     <Badge bg="dark">AQUI</Badge>
@@ -49,6 +95,18 @@ const Header = ({ conta = false, valor, contrato }) => {
           <FaVoteYea size={150} color="#198754" />
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 };

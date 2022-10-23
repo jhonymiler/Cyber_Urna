@@ -58,10 +58,11 @@
 .bids-card-bottom p {
   font-family: var(--font-family);
   font-weight: 600;
-  font-size: 12px;
+  font-size: 32px;
   line-height: 18px;
   /* text-align: right; */
   color: #ffffff;
+  padding-top: 20px;
 }
 .bids-card-bottom p:last-child {
   font-weight: normal;
@@ -139,7 +140,7 @@
     margin-top: 5px;
   }
   .bids-card-bottom p {
-    font-size: 10px;
+    font-size: 18px;
     line-height: 15px;
   }
   .bids-container {

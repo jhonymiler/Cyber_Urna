@@ -1,3 +1,3 @@
 import abi from "../../build/contracts/Urna.json";
 export const ContractABI = abi.abi;
-export const contractAddress = `0x78036B34Dc4bF28569f7eCe637c850aCdB9C6A44`;
+export const contractAddress = `0x9AD06071d5bF5f318A9D1B787C1EB8642ebF5DF1`;
