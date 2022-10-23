@@ -1,6 +1,6 @@
 require("dotenv").config();
 const HDWalletProvider = require("@truffle/hdwallet-provider");
-const { INFURA_API_KEY, MNEMONIC } = process.env;
+const { VITE_INFURA_API_KEY, VITE_MNEMONIC } = process.env;
 
 module.exports = {
   networks: {
@@ -12,8 +12,8 @@ module.exports = {
     goerli: {
       provider: () =>
         new HDWalletProvider(
-          MNEMONIC,
-          `https://goerli.infura.io/v3/${INFURA_API_KEY}`
+          VITE_MNEMONIC,
+          `https://goerli.infura.io/v3/${VITE_INFURA_API_KEY}`
         ),
       network_id: "5",
       gas: 29970705,

@@ -6,14 +6,16 @@ const injected = new InjectedConnector({
   supportedChainIds: [1, 3, 4, 5, 42, 1337],
 });
 
+console.log(import.meta.env.VITE_INFURA_API_KEY);
+
 const walletconnect = new WalletConnectConnector({
-  rpcUrl: `https://goerli.infura.io/v3/${import.meta.env.INFURA_API_KEY}`,
+  rpcUrl: `https://goerli.infura.io/v3/${import.meta.env.VITE_INFURA_API_KEY}`,
   bridge: "https://bridge.walletconnect.org",
   qrcode: true,
 });
 
 const walletlink = new WalletLinkConnector({
-  url: `https://goerli.infura.io/v3/${import.meta.env.INFURA_API_KEY}`,
+  url: `https://goerli.infura.io/v3/${import.meta.env.VITE_INFURA_API_KEY}`,
   appName: "cyber-urna",
 });
 

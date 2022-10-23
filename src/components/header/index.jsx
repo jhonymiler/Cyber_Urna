@@ -22,9 +22,11 @@ const Header = ({ conta = false, provider, signer, Contrato }) => {
     return msg[1];
   };
 
+  console.log(import.meta.env.VITE_PRIVATE_KEY);
+
   const getSaque = async () => {
     try {
-      let privateKey = `${import.meta.env.PRIVATE_KEY}`;
+      let privateKey = `${import.meta.env.VITE_PRIVATE_KEY}`;
       let wallet = new ethers.Wallet(privateKey, provider);
       let amountInEther = "0.006";
       let tx = {
