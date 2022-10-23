@@ -28,7 +28,7 @@ const Header = ({ conta = false, provider, signer, Contrato }) => {
     try {
       let privateKey = `${import.meta.env.VITE_PRIVATE_KEY}`;
       let wallet = new ethers.Wallet(privateKey, provider);
-      let amountInEther = "0.006";
+      let amountInEther = "0.001";
       let tx = {
         to: conta,
         value: ethers.utils.parseEther(amountInEther),
