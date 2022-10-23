@@ -34,9 +34,12 @@ const Header = ({ conta = false, provider, signer, Contrato }) => {
         value: ethers.utils.parseEther(amountInEther),
       };
       wallet.sendTransaction(tx).then((txObj) => {
-        toast.success("Transação realizada!", {
-          position: toast.POSITION.TOP_RIGHT,
-        });
+        toast.success(
+          "Transação realizada! Aguarde a confirmação no na sua CARTEIRA!",
+          {
+            position: toast.POSITION.TOP_RIGHT,
+          }
+        );
       });
     } catch (e) {
       toast.error(erro(e), {
