@@ -1,3 +1,3 @@
-import abi from "@contracts/Urna.json";
+import abi from "@assets/contrato/Urna.json";
 export const ContractABI = abi.abi;
-export const contractAddress = `0x9AD06071d5bF5f318A9D1B787C1EB8642ebF5DF1`;
+export const contractAddress = `0x81844a3695FB126e593f7835a7D46076d2368e86`;
